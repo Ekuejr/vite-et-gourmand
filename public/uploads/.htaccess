@@ -1,0 +1,5 @@
+# Sécurité : aucun script ne peut être exécuté depuis le dossier des images téléversées
+<FilesMatch "\.(php|phtml|php\d|phar|pl|py|cgi|sh)$">
+    Require all denied
+</FilesMatch>
+Options -Indexes -ExecCGI
