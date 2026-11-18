@@ -1,0 +1,17 @@
+# Secrets et environnement local
+.env
+
+# Dépendances (réinstallées via composer / npm)
+/vendor/
+/node_modules/
+
+# Fichiers générés à l'exécution
+/storage/logs/*.log
+/public/uploads/*
+!/public/uploads/.gitkeep
+
+# IDE / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
