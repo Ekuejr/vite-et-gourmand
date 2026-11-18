@@ -1,0 +1,34 @@
+{
+    "name": "ekuejr/vite-et-gourmand",
+    "description": "Application web de vitrine et de commande de menus pour le traiteur Vite & Gourmand (ECF DWWM)",
+    "type": "project",
+    "license": "MIT",
+    "require": {
+        "php": ">=8.2",
+        "ext-pdo": "*",
+        "ext-mbstring": "*",
+        "phpmailer/phpmailer": "^6.9"
+    },
+    "suggest": {
+        "ext-mongodb": "Requis pour les statistiques administrateur (base NoSQL MongoDB)"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^11.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit --testdox tests"
+    },
+    "config": {
+        "sort-packages": true
+    }
+}

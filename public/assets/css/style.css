@@ -1,0 +1,140 @@
+/* =====================================================================
+   Vite & Gourmand - feuille de style (charte graphique)
+   Bootstrap 5 sert de base ; ce fichier applique l'identité visuelle.
+   Polices auto-hébergées (pas d'appel à Google Fonts : RGPD + éco-conception).
+   Contrastes vérifiés WCAG AA (texte >= 4,5:1).
+   ===================================================================== */
+
+@font-face {
+    font-family: "Playfair Display";
+    src: url("../fonts/playfair-display-latin-700-normal.woff2") format("woff2");
+    font-weight: 700;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Source Sans 3";
+    src: url("../fonts/source-sans-3-latin-400-normal.woff2") format("woff2");
+    font-weight: 400;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Source Sans 3";
+    src: url("../fonts/source-sans-3-latin-600-normal.woff2") format("woff2");
+    font-weight: 600;
+    font-display: swap;
+}
+
+:root {
+    --vg-bordeaux: #7a1f3d;      /* couleur principale (contraste 9,3:1 sur crème) */
+    --vg-bordeaux-dark: #5a1630;
+    --vg-cream: #fbf6ee;         /* fond */
+    --vg-gold: #c8963e;          /* décoratif uniquement (bordures, filets) */
+    --vg-gold-text: #8a5a12;     /* or lisible pour du texte (5,5:1) */
+    --vg-ink: #2b2b2b;           /* texte */
+    --vg-sage: #2e6b4f;          /* succès / régime */
+    --bs-body-font-family: "Source Sans 3", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --bs-body-color: var(--vg-ink);
+    --bs-body-bg: var(--vg-cream);
+    --bs-link-color-rgb: 122, 31, 61;
+    --bs-link-hover-color-rgb: 90, 22, 48;
+}
+
+body { font-size: 1.0625rem; line-height: 1.6; }
+
+h1, h2, h3, .navbar-brand, .display-title {
+    font-family: "Playfair Display", Georgia, serif;
+    font-weight: 700;
+    color: var(--vg-bordeaux);
+}
+
+/* Lien d'évitement (RGAA) : visible au premier Tab */
+.skip-link {
+    position: absolute; left: -9999px; top: 0; z-index: 2000;
+    background: var(--vg-bordeaux); color: #fff; padding: .5rem 1rem;
+}
+.skip-link:focus { left: 1rem; top: 1rem; }
+
+/* Focus clavier très visible (RGAA 10.7) */
+:focus-visible { outline: 3px solid var(--vg-gold); outline-offset: 2px; }
+
+/* Navigation */
+.navbar-vg { background: var(--vg-bordeaux); }
+.navbar-vg .navbar-brand, .navbar-vg .nav-link { color: #fff; }
+.navbar-vg .nav-link:hover, .navbar-vg .nav-link:focus, .navbar-vg .nav-link.active { color: #ffe7b8; text-decoration: underline; }
+.navbar-vg .navbar-toggler { border-color: rgba(255,255,255,.6); }
+.navbar-vg .navbar-toggler-icon { filter: invert(1); }
+.navbar-vg .btn-link { color: #fff; text-decoration: none; }
+
+/* Boutons */
+.btn-primary {
+    --bs-btn-bg: var(--vg-bordeaux); --bs-btn-border-color: var(--vg-bordeaux);
+    --bs-btn-hover-bg: var(--vg-bordeaux-dark); --bs-btn-hover-border-color: var(--vg-bordeaux-dark);
+    --bs-btn-active-bg: var(--vg-bordeaux-dark); --bs-btn-disabled-bg: #a87a8a;
+}
+.btn-outline-primary {
+    --bs-btn-color: var(--vg-bordeaux); --bs-btn-border-color: var(--vg-bordeaux);
+    --bs-btn-hover-bg: var(--vg-bordeaux); --bs-btn-hover-border-color: var(--vg-bordeaux);
+    --bs-btn-active-bg: var(--vg-bordeaux-dark);
+}
+
+/* Héro page d'accueil */
+.hero {
+    background: linear-gradient(rgba(90,22,48,.86), rgba(90,22,48,.86)), url("../img/hero.svg") center/cover;
+    color: #fff; padding: 4.5rem 0; border-bottom: 4px solid var(--vg-gold);
+}
+.hero h1 { color: #fff; font-size: clamp(2rem, 4vw, 3.2rem); }
+
+.section-title { position: relative; padding-bottom: .5rem; margin-bottom: 1.5rem; }
+.section-title::after { content: ""; position: absolute; left: 0; bottom: 0; width: 64px; height: 3px; background: var(--vg-gold); }
+
+/* Cartes menus */
+.card-menu { border: 1px solid #eadfcd; border-radius: 12px; overflow: hidden; transition: transform .15s ease; }
+.card-menu:hover { transform: translateY(-2px); }
+.card-menu img { aspect-ratio: 16 / 10; object-fit: cover; background: #efe4d3; }
+.badge-theme { background: var(--vg-bordeaux); }
+.badge-regime { background: var(--vg-sage); }
+.price { font-weight: 600; color: var(--vg-bordeaux); font-size: 1.25rem; }
+
+/* Conditions du menu : mises en évidence (exigence client) */
+.conditions-box {
+    border: 2px solid var(--vg-bordeaux); border-left-width: 8px;
+    background: #fff4f6; border-radius: 8px; padding: 1rem 1.25rem;
+}
+
+.allergens { color: #6b3a00; font-size: .95rem; }
+
+/* Avis */
+.review-card { background: #fff; border-radius: 12px; border: 1px solid #eadfcd; }
+.stars { color: var(--vg-gold-text); letter-spacing: 2px; }
+
+/* Filtres */
+.filters { background: #fff; border: 1px solid #eadfcd; border-radius: 12px; }
+
+/* Récapitulatif prix */
+.price-summary { background: #fff; border: 1px solid #eadfcd; border-radius: 12px; }
+.price-summary dt { font-weight: 400; }
+.price-summary .total { font-size: 1.3rem; font-weight: 600; color: var(--vg-bordeaux); }
+
+/* Suivi de commande (frise) */
+.timeline { list-style: none; padding-left: 0; border-left: 3px solid var(--vg-gold); }
+.timeline li { position: relative; padding: 0 0 1rem 1.25rem; }
+.timeline li::before { content: ""; position: absolute; left: -9px; top: .35rem; width: 15px; height: 15px; border-radius: 50%; background: var(--vg-bordeaux); }
+
+/* Pied de page */
+.footer-vg { background: #2b1a20; color: #f3e9ea; }
+.footer-vg a { color: #ffe7b8; }
+.footer-vg h2 { color: #fff; font-size: 1.15rem; }
+.footer-vg .table { --bs-table-bg: transparent; --bs-table-color: #f3e9ea; color: #f3e9ea; }
+
+/* Espace pro */
+.sidebar-pro .list-group-item.active { background: var(--vg-bordeaux); border-color: var(--vg-bordeaux); }
+
+/* Accessibilité : respect de la préférence "réduire les animations" */
+@media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation: none !important; }
+}
+
+/* Largeurs de formulaires (pas de style inline : interdit par la CSP) */
+.form-narrow { max-width: 520px; }
+.form-medium { max-width: 760px; }
+.chart-box { position: relative; height: 360px; }
