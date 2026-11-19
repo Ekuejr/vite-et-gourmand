@@ -2,10 +2,7 @@
 Options -Indexes
 RewriteEngine On
 
-# Redirection HTTP -> HTTPS en production
-RewriteCond %{HTTPS} off
-RewriteCond %{HTTP_HOST} !^localhost [NC]
-RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+# HTTPS : redirection gérée par l'hébergeur (proxy TLS alwaysdata, option "Forcer HTTPS")
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
